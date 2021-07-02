@@ -10,17 +10,24 @@
 
 void display_complex_number(complex c)
 {
+	char x = '+';
+	double im = c.im;
+	if (c.re != 0 && c.im < 0)
+	{
+		x = '-';
+		im = im * -1;
+	}
 	if (c.re * c.im != 0)
 	{
-		printf("%g + %gi\n", c.re, c.im);
+		printf("%g %c %gi\n", c.re, x, im);
 	}
-	else if (c.re == 0)
-	{
-		printf("%gi\n", c.im);
-	}
-	else if (c.im == 0)
+	else if (c.re != 0)
 	{
 		printf("%g\n", c.re);
+	}
+	else if (c.im != 0)
+	{
+		printf("%gi\n", c.im);
 	}
 
 }
